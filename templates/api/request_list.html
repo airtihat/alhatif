@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة الطلبات</title>
+</head>
+<body>
+    <h1>قائمة الطلبات</h1>
+
+    <ul>
+        {% for req in requests %}
+            <li>
+                <strong>{{ req.name }}</strong> ({{ req.email }}) - {{ req.created_at|date:"Y-m-d H:i" }}<br>
+                {{ req.message }}
+            </li>
+        {% empty %}
+            <li>لا توجد طلبات حاليًا.</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'api:create_request' %}">طلب جديد</a></p>
+</body>
+</html>

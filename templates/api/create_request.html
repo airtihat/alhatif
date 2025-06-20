@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>إضافة طلب جديد</title>
+</head>
+<body>
+    <h1>إضافة طلب جديد</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">إرسال</button>
+    </form>
+
+    <p><a href="{% url 'api:request_list' %}">العودة إلى القائمة</a></p>
+</body>
+</html>

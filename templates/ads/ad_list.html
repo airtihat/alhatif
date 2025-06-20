@@ -1,4 +1,9 @@
-<h1>الإعلانات</h1>
+<h1>قائمة الإعلانات</h1>
 <ul>
-  <li>حملة صيفية - نشطة</li>
+    {% for ad in ads %}
+        <li>{{ ad.title }} - {{ ad.campaign_type }}</li>
+    {% empty %}
+        <li>لا توجد إعلانات.</li>
+    {% endfor %}
 </ul>
+<a href="{% url 'ads:create_ad' %}">إضافة إعلان جديد</a>
