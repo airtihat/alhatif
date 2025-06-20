@@ -2,12 +2,10 @@ from django.shortcuts import render, redirect
 from .forms import AdCampaignForm
 from .models import AdCampaign
 
-# عرض قائمة الإعلانات
 def ad_list(request):
     ads = AdCampaign.objects.all()
     return render(request, 'ads/ad_list.html', {'ads': ads})
 
-# إنشاء إعلان جديد
 def create_ad(request):
     if request.method == 'POST':
         form = AdCampaignForm(request.POST)

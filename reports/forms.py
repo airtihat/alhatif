@@ -1,7 +1,7 @@
 from django import forms
-from .models import Campaign  # حسب التطبيق
+from .models import Report
 
-class CampaignForm(forms.ModelForm):
+class ReportForm(forms.ModelForm):
     class Meta:
-        model = Campaign
-        fields = '__all__'
+        model = Report
+        fields = ['subject', 'description', 'report_type']

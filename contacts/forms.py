@@ -1,7 +1,7 @@
 from django import forms
-from .models import Campaign  # حسب التطبيق
+from .models import Contact
 
-class CampaignForm(forms.ModelForm):
+class ContactForm(forms.ModelForm):
     class Meta:
-        model = Campaign
+        model = Contact
         fields = '__all__'

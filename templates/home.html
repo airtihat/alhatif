@@ -1,14 +1,6 @@
-{% include 'header.html' %}
-
-<main style="padding: 2rem; font-family: Arial, sans-serif;">
-    <section style="text-align: center;">
-        <h1 style="font-size: 2.5rem; color: #2c3e50;">مرحباً بك في نظام دليل الهاتف</h1>
-        <p style="font-size: 1.2rem; color: #555;">منصة متكاملة لإدارة جهات الاتصال والإعلانات والتقارير بسهولة وأمان.</p>
-        
-        <a href="/contacts/" style="display: inline-block; margin-top: 1.5rem; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
-            ابدأ الآن
-        </a>
-    </section>
-</main>
-
-{% include 'footer.html' %}
+{% extends 'base.html' %}
+{% block content %}
+<h1>📞 مرحباً بك في منصة دليل الهاتف</h1>
+<p>لوحة تحكم مبسطة لإدارة النظام</p>
+<a href="{% url 'profile' %}">الملف الشخصي</a>
+{% endblock %}

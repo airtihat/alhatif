@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="max-width: 600px; margin: auto; padding: 2rem; background-color: #f9f9f9; border-radius: 10px;">
+    <h2 style="text-align: center; color: #333;">📨 إرسال إشعار</h2>
+
+    {% if messages %}
+        <ul style="list-style: none; padding: 0;">
+            {% for message in messages %}
+                <li style="background-color: #d4edda; color: #155724; padding: 10px; margin-top: 10px; border-radius: 5px;">
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 1rem;">
+            <label for="id_recipient">المستلم:</label>
+            {{ form.recipient }}
+        </div>
+        <div style="margin-bottom: 1rem;">
+            <label for="id_message">الرسالة:</label>
+            {{ form.message }}
+        </div>
+        <div style="margin-bottom: 1rem;">
+            <label for="id_channel">طريقة الإرسال:</label>
+            {{ form.channel }}
+        </div>
+        <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+            إرسال
+        </button>
+    </form>
+</div>
+{% endblock %}
