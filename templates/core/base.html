@@ -1,0 +1,19 @@
+<!-- templates/core/base.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}تسجيل الدخول{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>📞 دليل الهاتف</h1>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- سيتم استبداله بمحتوى الصفحات الأخرى -->
+        {% endblock %}
+    </main>
+</body>
+</html>

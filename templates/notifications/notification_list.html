@@ -1,4 +1,26 @@
-<h1>قائمة التنبيهات</h1>
-<ul>
-  <li>تنبيه جديد بتاريخ اليوم</li>
-</ul>
+{% extends 'base.html' %}
+{% block title %}قائمة الإشعارات{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">📋 قائمة الإشعارات</h2>
+
+    {% if notifications %}
+        <ul class="list-group">
+            {% for notif in notifications %}
+                <li class="list-group-item">
+                    <strong>{{ notif.title }}</strong><br>
+                    <span class="text-muted">{{ notif.created_at|date:"Y-m-d H:i" }}</span>
+                    <p>{{ notif.message }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>لا توجد إشعارات حالياً.</p>
+    {% endif %}
+
+    <div class="mt-4">
+        <a href="{% url 'notifications:send_notification' %}" class="btn btn-success">➕ إرسال إشعار جديد</a>
+    </div>
+</div>
+{% endblock %}

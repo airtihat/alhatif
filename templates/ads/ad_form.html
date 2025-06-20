@@ -1,5 +1,14 @@
-<h1>إنشاء إعلان</h1>
-<form>
-  <input placeholder="عنوان الحملة">
-  <button>حفظ</button>
-</form>
+from django import forms
+from .models import AdCampaign
+
+class AdCampaignForm(forms.ModelForm):
+    class Meta:
+        model = AdCampaign
+        fields = ['title', 'description', 'campaign_type', 'status', 'image']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
+            'campaign_type': forms.Select(attrs={'class': 'form-select'}),
+            'status': forms.Select(attrs={'class': 'form-select'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }

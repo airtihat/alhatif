@@ -1,5 +1,21 @@
-<h1>إرسال تنبيه</h1>
-<form>
-  <textarea></textarea>
-  <button>إرسال</button>
-</form>
+{% extends 'base.html' %}
+{% block title %}إرسال إشعار{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">🔔 إرسال إشعار جديد</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">إرسال</button>
+        <a href="{% url 'notifications:notification_list' %}" class="btn btn-secondary">رجوع</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,2 +1,25 @@
-<h1>إعدادات التنبيهات</h1>
-<p>تشغيل / إيقاف</p>
+{% extends 'base.html' %}
+{% block title %}إعدادات الإشعارات{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">⚙️ إعدادات الإشعارات</h2>
+    <p>هنا يمكنك التحكم في نوع الإشعارات التي تستلمها، وأوقاتها.</p>
+
+    <!-- محتوى تجريبي – يمكن ربطه بواجهة حقيقية لاحقًا -->
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked>
+            <label class="form-check-label">استلام إشعارات بالبريد الإلكتروني</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox">
+            <label class="form-check-label">إشعارات عبر الرسائل النصية</label>
+        </div>
+
+        <button class="btn btn-primary mt-3">حفظ الإعدادات</button>
+    </form>
+</div>
+{% endblock %}

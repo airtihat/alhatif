@@ -1,8 +1,20 @@
-{% extends 'core/base.html' %}
-
-{% block title %}الرئيسية - notifications{% endblock %}
+{% extends 'base.html' %}
+{% block title %}مركز الإشعارات{% endblock %}
 
 {% block content %}
-<h2>مرحباً بك في صفحة Notifications</h2>
-<p>هذه الصفحة قيد التطوير...</p>
+<div class="container">
+    <h2 class="mb-4">🔔 مركز الإشعارات</h2>
+
+    <div class="list-group">
+        <a href="{% url 'notifications:notification_list' %}" class="list-group-item list-group-item-action">
+            📋 عرض جميع الإشعارات
+        </a>
+        <a href="{% url 'notifications:send_notification' %}" class="list-group-item list-group-item-action">
+            ➕ إرسال إشعار جديد
+        </a>
+        <a href="{% url 'notifications:notification_settings' %}" class="list-group-item list-group-item-action">
+            ⚙️ إعدادات الإشعارات
+        </a>
+    </div>
+</div>
 {% endblock %}

@@ -1,7 +1,43 @@
-<h1>إضافة إعلان جديد</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">حفظ</button>
-</form>
-<a href="{% url 'ads:ad_list' %}">رجوع إلى القائمة</a>
+{% extends 'base.html' %}
+
+{% block title %}➕ إعلان جديد{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="mb-4">➕ إنشاء إعلان جديد</h2>
+
+    <form method="post" enctype="multipart/form-data" class="row g-3">
+        {% csrf_token %}
+
+        <div class="col-md-6">
+            <label class="form-label">عنوان الإعلان</label>
+            {{ form.title }}
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">نوع الحملة</label>
+            {{ form.campaign_type }}
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">الحالة</label>
+            {{ form.status }}
+        </div>
+
+        <div class="col-md-12">
+            <label class="form-label">الوصف</label>
+            {{ form.description }}
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">الصورة (اختياري)</label>
+            {{ form.image }}
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-success">📤 نشر الإعلان</button>
+            <a href="{% url 'ads_list' %}" class="btn btn-secondary">🔙 رجوع</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,9 +1,60 @@
-<h1>قائمة الإعلانات</h1>
-<ul>
-    {% for ad in ads %}
-        <li>{{ ad.title }} - {{ ad.campaign_type }}</li>
-    {% empty %}
-        <li>لا توجد إعلانات.</li>
-    {% endfor %}
-</ul>
-<a href="{% url 'ads:create_ad' %}">إضافة إعلان جديد</a>
+{% extends 'core/base.html' %}
+
+{% block title %}📢 الإعلانات{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>📢 الإعلانات</h2>
+        <a href="{% url 'create_ad' %}" class="btn btn-primary">➕ إعلان جديد</a>
+    </div>
+
+    <!-- فلاتر البحث -->
+    <form method="get" class="row mb-4">
+        <div class="col-md-4">
+            <select name="type" class="form-select" onchange="this.form.submit()">
+                <option value="">كل الأنواع</option>
+                <option value="internal">داخلي</option>
+                <option value="google">Google</option>
+                <option value="facebook">Facebook</option>
+                <option value="tiktok">TikTok</option>
+                <option value="combined">متكامل</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select name="status" class="form-select" onchange="this.form.submit()">
+                <option value="">كل الحالات</option>
+                <option value="active">نشط</option>
+                <option value="paused">متوقف</option>
+                <option value="draft">مسودة</option>
+                <option value="completed">مكتمل</option>
+            </select>
+        </div>
+    </form>
+
+    {% if ads %}
+        <div class="row">
+            {% for ad in ads %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow border rounded h-100">
+                        {% if ad.image %}
+                        <img src="{{ ad.image.url }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="صورة الإعلان">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ ad.title }}</h5>
+                            <p class="card-text">{{ ad.description|truncatewords:20 }}</p>
+                            <ul class="list-unstyled small">
+                                <li><strong>الحالة:</strong> {{ ad.get_status_display }}</li>
+                                <li><strong>النوع:</strong> {{ ad.get_campaign_type_display }}</li>
+                                <li><strong>المالك:</strong> {{ ad.user.username }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">لا توجد إعلانات لعرضها حالياً.</p>
+    {% endif %}
+</div>
+{% endblock %}
