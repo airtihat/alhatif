@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block title %}تفاصيل الإعلان{% endblock %}
+
+{% block content %}
+<h2>تفاصيل الحملة الإعلانية</h2>
+
+<p><strong>عنوان الحملة:</strong> {{ ad.title }}</p>
+<p><strong>الميزانية:</strong> {{ ad.budget }} ريال</p>
+<p><strong>الحالة:</strong> 
+    {% if ad.is_active %}
+        <span style="color: green;">نشطة</span>
+    {% else %}
+        <span style="color: red;">غير نشطة</span>
+    {% endif %}
+</p>
+
+<a href="{% url 'ad_list' %}">⬅ العودة إلى قائمة الإعلانات</a>
+{% endblock %}

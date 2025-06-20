@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block title %}تأكيد حذف جهة الاتصال{% endblock %}
+
+{% block content %}
+<h2>هل أنت متأكد أنك تريد حذف جهة الاتصال التالية؟</h2>
+
+<p><strong>الاسم:</strong> {{ contact.name }}</p>
+<p><strong>رقم الجوال:</strong> {{ contact.phone }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" style="background-color: red; color: white; padding: 10px; border: none;">
+        نعم، احذف
+    </button>
+    <a href="{% url 'contact_list' %}" style="margin-right: 15px;">إلغاء</a>
+</form>
+{% endblock %}
