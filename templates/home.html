@@ -1,6 +1,38 @@
 {% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans "الرئيسية" %}{% endblock %}
+
 {% block content %}
-<h1>📞 مرحباً بك في منصة دليل الهاتف</h1>
-<p>لوحة تحكم مبسطة لإدارة النظام</p>
-<a href="{% url 'profile' %}">الملف الشخصي</a>
+<div class="homepage-hero bg-gradient-primary">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <h1 class="display-4 fw-bold text-white mb-4">{% trans "مرحبًا بك في دليل الهاتف" %}</h1>
+                <p class="lead text-white-50 mb-5">{% trans "نظام متكامل لإدارة الإعلانات، التقارير، وجهات الاتصال بسهولة وكفاءة." %}</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{% url 'profile' %}" class="btn btn-light btn-lg px-4 py-3 rounded-pill fw-bold">
+                        {% trans "ملفي الشخصي" %} <i class="fas fa-user ms-2"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill">
+                        {% trans "تعرف على المزيد" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="{% static 'images/hero-illustration.svg' %}" alt="{% trans 'دليل الهاتف' %}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .homepage-hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 5rem 0;
+        border-radius: 0 0 20px 20px;
+    }
+</style>
 {% endblock %}

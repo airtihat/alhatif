@@ -1,13 +1,12 @@
-<!-- templates/reports/submit_report.html -->
-{% extends 'core/base.html' %}
-
+{% extends 'base.html' %}
 {% block title %}إرسال تقرير{% endblock %}
 
 {% block content %}
-<h2>إرسال تقرير جديد</h2>
-<form method="post">
+  <h1>إرسال تقرير جديد</h1>
+  
+  <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">إرسال</button>
-</form>
+  </form>
 {% endblock %}

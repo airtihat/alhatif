@@ -1,2 +1,7 @@
-<h1>تحميل التقرير</h1>
-<button>تحميل PDF</button>
+{% extends 'base.html' %}
+{% block title %}تحميل التقرير{% endblock %}
+
+{% block content %}
+  <h1>تحميل التقرير: {{ report.subject }}</h1>
+  <a href="{{ report.file.url }}" download>تحميل التقرير</a>
+{% endblock %}

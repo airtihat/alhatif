@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: دليل الهاتف\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-20 23:00+0300\n"
+"PO-Revision-Date: 2025-06-20 23:10+0300\n"
+"Last-Translator: Your Name <email@example.com>\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/home.html:6
+msgid "Phone Directory"
+msgstr "دليل الهاتف"
+
+#: templates/home.html:20
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: templates/home.html:23
+msgid "Register"
+msgstr "إنشاء حساب"
+
+#: templates/home.html:13
+msgid "Advertisements"
+msgstr "الإعلانات"
+
+#: templates/home.html:30
+msgid "All rights reserved"
+msgstr "جميع الحقوق محفوظة"

@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from django.contrib.auth import views as auth_views
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -36,3 +37,4 @@ class CustomUserCreationForm(UserCreationForm):
         if not phone.startswith("05") or not phone.isdigit():
             raise forms.ValidationError("رقم الجوال غير صالح. يجب أن يبدأ بـ 05 ويتكوّن من أرقام فقط.")
         return phone
+

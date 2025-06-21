@@ -1,4 +1,16 @@
-<h1>التقارير</h1>
-<ul>
-  <li>تقرير الأداء - 2024</li>
-</ul>
+{% extends 'base.html' %}
+{% block title %}قائمة التقارير{% endblock %}
+
+{% block content %}
+  <h1>قائمة التقارير</h1>
+  <ul>
+    {% for report in reports %}
+      <li>
+        <a href="{% url 'reports:report_detail' report.id %}">{{ report.subject }}</a>
+        <span>{{ report.submitted_at|date:"Y-m-d" }}</span>
+      </li>
+    {% empty %}
+      <p>لا توجد تقارير حالياً.</p>
+    {% endfor %}
+  </ul>
+{% endblock %}

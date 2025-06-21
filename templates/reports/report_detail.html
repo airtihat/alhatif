@@ -1,2 +1,15 @@
-<h1>تفاصيل التقرير</h1>
-<p>هذا تقرير وهمي</p>
+{% extends 'base.html' %}
+{% block title %}تفاصيل التقرير{% endblock %}
+
+{% block content %}
+  <h1>تفاصيل التقرير: {{ report.subject }}</h1>
+  <p><strong>الوصف:</strong> {{ report.description }}</p>
+  <p><strong>تاريخ التقديم:</strong> {{ report.submitted_at }}</p>
+  
+  <!-- نموذج إضافة تعليق أو تعديل التقرير، إذا كان هناك نموذج -->
+  <form method="POST">
+    {% csrf_token %}
+    <!-- إضافة الحقول للنموذج هنا -->
+    <button type="submit">إرسال</button>
+  </form>
+{% endblock %}
